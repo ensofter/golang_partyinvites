@@ -13,4 +13,5 @@ var responses = make([]*Rsvp, 0, 10)
 
 func main() {
 	fmt.Println("TODO: add some features")
+	fmt.Sprintln(responses)
 }
