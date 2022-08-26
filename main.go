@@ -5,8 +5,8 @@ import (
 )
 
 type Rsvp struct {
-	Name, Email, Phone, string
-	WillAttend bool
+	Name, Email, Phone string
+	WillAttend         bool
 }
 
 var responses = make([]*Rsvp, 0, 10)
