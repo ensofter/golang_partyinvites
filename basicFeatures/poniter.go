@@ -7,10 +7,13 @@ func main() {
 	second := &first
 
 	first++
-
-	fmt.Println("First:", first)
-	fmt.Println("Second:", *second)
 	*second++
+
+	var myNewPointer *int
+	myNewPointer = second
+
+	*myNewPointer++
+
 	fmt.Println("First:", first)
 	fmt.Println("Second:", *second)
 }
