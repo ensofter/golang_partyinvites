@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 func main() {
@@ -10,4 +11,5 @@ func main() {
 
 	eaual := first == second
 	fmt.Println(eaual)
+	fmt.Println(math.Floor(27.1))
 }
