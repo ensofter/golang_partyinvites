@@ -2,14 +2,12 @@ package main
 
 import (
 	"fmt"
-	"math"
 )
 
 func main() {
-	var intVal = math.MaxInt64
-	var floatVal = math.MaxFloat64
+	first := 100
+	const second = 200.00
 
-	fmt.Println(intVal)
-	fmt.Println(floatVal * 2)
-	fmt.Println(math.IsInf((floatVal * 2), 0))
+	eaual := first == second
+	fmt.Println(eaual)
 }
