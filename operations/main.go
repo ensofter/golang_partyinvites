@@ -1,7 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 func main() {
-	fmt.Println("Hello, operations")
+	var intVal = math.MaxInt64
+	var floatVal = math.MaxFloat64
+
+	fmt.Println(intVal)
+	fmt.Println(floatVal * 2)
+	fmt.Println(math.IsInf((floatVal * 2), 0))
 }
