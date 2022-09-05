@@ -2,15 +2,13 @@ package main
 
 import (
 	"fmt"
-	"strconv"
 )
 
 func main() {
-	priceString := "275"
-	if kayakPrice, err := strconv.Atoi(priceString); err == nil {
-		fmt.Println("Price:", kayakPrice)
-	} else {
-		fmt.Println("Error:", err)
-	}
+	product := "koyak"
 
+	for index, character := range product {
+		fmt.Println("Index:", index)
+		fmt.Println("Char:", string(character))
+	}
 }
