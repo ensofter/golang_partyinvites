@@ -11,4 +11,7 @@ func main() {
 	fmt.Println("Map size:", len(products))
 	fmt.Println("Price:", products["Kayak"])
 	fmt.Println("Price:", products["Lifejacket"])
+	// okt
+	a := 2
+	fmt.Println(a)
 }
