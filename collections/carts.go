@@ -12,4 +12,19 @@ func main() {
 	fmt.Println("Price:", products["Kayak"])
 	fmt.Println("Price:", products["Lifejacket"])
 
+	items := map[string]float64{
+		"Kayak":    279,
+		"Lifejack": 48.95,
+	}
+	fmt.Println("Map size:", len(items))
+	fmt.Println("Price:", items["Kayak"])
+	fmt.Println("Price:", items["Hat"])
+
+	value, ok := items["Hat"]
+
+	if ok {
+		fmt.Println("Stored value:", value)
+	} else {
+		fmt.Println("No stored value")
+	}
 }
