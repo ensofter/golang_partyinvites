@@ -35,6 +35,14 @@ func printSuppliers2(product string, suppliers ...string) {
 	}
 }
 
+func swapValues(first, second *int) {
+	fmt.Println("Before swap:", *first, *second)
+	temp := *first
+	*first = *second
+	*second = temp
+	fmt.Println("After swap:", *first, *second)
+}
+
 func main() {
 	fmt.Println("About to call function")
 	printPrice()
@@ -53,4 +61,12 @@ func main() {
 	printSuppliers2("Kayak", "Acme Kayaks", "Bob;s Boats", "Crazy Canoes")
 	printSuppliers2("LafiJacket", "Sail Safe Co")
 	printSuppliers2("Soccer Ball")
+	fmt.Println("________________________________________________________")
+	names := []string{"Puting Hiy", "Posrat na hohlov", "Ebal v rot mobilizaciu"}
+	printSuppliers2("Kayak", names...)
+	fmt.Println("________________________________________________________")
+	val1, val2 := 10, 20
+	fmt.Println("Before calling function", val1, val2)
+	swapValues(&val1, &val2)
+	fmt.Println("After calling function", val1, val2)
 }
