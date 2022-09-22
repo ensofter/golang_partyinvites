@@ -43,6 +43,21 @@ func swapValues(first, second *int) {
 	fmt.Println("After swap:", *first, *second)
 }
 
+func calcTax(price float64) float64 {
+	return price + (price * 0.2)
+}
+
+func swapValues1(first, second int) (int, int) {
+	return second, first
+}
+
+func calcTax1(price float64) float64 {
+	if price > 100 {
+		return price * 0.2
+	}
+	return -1
+}
+
 func main() {
 	fmt.Println("About to call function")
 	printPrice()
@@ -69,4 +84,35 @@ func main() {
 	fmt.Println("Before calling function", val1, val2)
 	swapValues(&val1, &val2)
 	fmt.Println("After calling function", val1, val2)
+	fmt.Println("________________________________________________________")
+	products := map[string]float64{
+		"Kayak":      275,
+		"Lifejacket": 48.95,
+	}
+
+	for product, price := range products {
+		priceWithTax := calcTax(price)
+		fmt.Println("Product:", product, "Price:", priceWithTax)
+	}
+	fmt.Println("________________________________________________________")
+	val3, val4 := 10, 20
+	fmt.Println("Before calling function", val3, val4)
+	val3, val4 = swapValues1(val3, val4)
+	fmt.Println("After calling function", val3, val4)
+	fmt.Println("________________________________________________________")
+
+	products1 := map[string]float64{
+		"Kayak":      275,
+		"Lifejacket": 48.95,
+	}
+
+	for product, price := range products1 {
+		tax := calcTax1(price)
+		if tax != -1 {
+			fmt.Println("Product:", product, "Tax", tax)
+		} else {
+			fmt.Println("Product:", product, "No tax due")
+		}
+	}
+
 }
