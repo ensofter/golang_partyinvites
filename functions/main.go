@@ -58,6 +58,26 @@ func calcTax1(price float64) float64 {
 	return -1
 }
 
+func calcTax2(price float64) (float64, bool) {
+	if price > 100 {
+		return price * 0.2, true
+	}
+	return 0, false
+}
+
+func calcTotalPrice(products map[string]float64, minSpend float64) (total, tax float64) {
+	total = minSpend
+	for _, price := range products {
+		if taxAmount, due := calcTax2(price); due {
+			total += taxAmount
+			tax += taxAmount
+		} else {
+			total += price
+		}
+	}
+	return
+}
+
 func main() {
 	fmt.Println("About to call function")
 	printPrice()
@@ -114,5 +134,8 @@ func main() {
 			fmt.Println("Product:", product, "No tax due")
 		}
 	}
+	fmt.Println("________________________________________________________")
+	total1, tax1 := calcTotalPrice(products1, 10)
+	fmt.Println("Total 1:", total1, "Tax 1:", tax1)
 
 }
