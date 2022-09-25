@@ -78,6 +78,26 @@ func calcTotalPrice(products map[string]float64, minSpend float64) (total, tax f
 	return
 }
 
+func calcTotalPrice1(products map[string]float64) (count int, total float64) {
+	count = len(products)
+	for _, price := range products {
+		total += price
+	}
+	return
+}
+
+func calcTotalPrice2(products map[string]float64) (count int, total float64) {
+	fmt.Println("Function started")
+	defer fmt.Println("First defer start")
+	count = len(products)
+	for _, price := range products {
+		total += price
+	}
+	defer fmt.Println("Secend defer start")
+	fmt.Println("Function about to return")
+	return
+}
+
 func main() {
 	fmt.Println("About to call function")
 	printPrice()
@@ -137,5 +157,11 @@ func main() {
 	fmt.Println("________________________________________________________")
 	total1, tax1 := calcTotalPrice(products1, 10)
 	fmt.Println("Total 1:", total1, "Tax 1:", tax1)
-
+	fmt.Println("________________________________________________________")
+	_, total := calcTotalPrice1(products)
+	fmt.Println("Total:", total)
+	fmt.Println("________________________________________________________")
+	z, total1 := calcTotalPrice2(products)
+	fmt.Println("Total:", total1)
+	fmt.Println(z)
 }
