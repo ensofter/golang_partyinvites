@@ -4,7 +4,7 @@ import "fmt"
 
 type Expense interface {
 	getName() string
-	getCost(annual bool) float64
+	getCost(annual bool) (float64, int)
 }
 
 type Service struct {
