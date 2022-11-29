@@ -4,7 +4,7 @@ import "fmt"
 
 type Expense interface {
 	getName() string
-	getCost(annual bool) (float64, int)
+	getCost(annual bool) float64
 }
 
 type Service struct {
@@ -38,10 +38,13 @@ func (p Product) getCost(_ bool) float64 {
 }
 
 func main() {
+	expenses := []Expense{
+		Product{"Kayak", "Watersports", 275},
+		Service{"Boat Cover", 12, 89.50},
+	}
 
-	kayak := Product{"Kayak", "Watersports", 275}
-	insurance := Service{"Boat Cover", 12, 89.50}
+	for _, expense := range expenses {
+		fmt.Println("Product:", expense.getName(), "Price:", expense.getCost(true))
+	}
 
-	fmt.Println("Product:", kayak.name, "Price:", kayak.price)
-	fmt.Println("Service:", insurance.description, "Price:", insurance.monthlyFee*float64(insurance.durationMonths))
 }
