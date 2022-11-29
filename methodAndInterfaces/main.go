@@ -20,11 +20,11 @@ type Service struct {
 	monthlyFee     float64
 }
 
-func (s Service) getName() string {
+func (s *Service) getName() string {
 	return s.description
 }
 
-func (s Service) getCost(recur bool) float64 {
+func (s *Service) getCost(recur bool) float64 {
 	if recur {
 		return s.monthlyFee * float64(s.durationMonths)
 	}
@@ -52,7 +52,7 @@ type Accout struct {
 func main() {
 	expenses := []Expense{
 		Product{"Kayak", "Watersports", 275},
-		Service{"Boat Cover", 12, 89.50},
+		&Service{"Boat Cover", 12, 89.50},
 	}
 
 	for _, expense := range expenses {
@@ -64,7 +64,7 @@ func main() {
 		accountNumber: 12345,
 		expenses: []Expense{
 			Product{"Kayak", "Watersports", 275},
-			Service{"Boat Cover", 12, 89.50},
+			&Service{"Boat Cover", 12, 89.50},
 		},
 	}
 
@@ -72,4 +72,16 @@ func main() {
 		fmt.Println("Expenses:", expense.getName(), "Cost:", expense.getCost(true))
 	}
 	fmt.Println("Total:", calcTotal(account.expenses))
+
+	product := Product{"Kayak", "Watersports", 275}
+	var expense Expense = &product
+	product.price = 100
+	fmt.Println("Product field value:", product.price)
+	fmt.Println("Expense method result:", expense.getCost(false))
+
+	service := Service{"Boat Cover", 12, 89.50}
+	var expense1 Expense = &service
+	service.monthlyFee = 1001
+	fmt.Println("Product field value:", service.monthlyFee)
+	fmt.Println("Expense method result:", expense1.getCost(false))
 }
