@@ -84,4 +84,25 @@ func main() {
 	service.monthlyFee = 1001
 	fmt.Println("Product field value:", service.monthlyFee)
 	fmt.Println("Expense method result:", expense1.getCost(false))
+
+	var e1 Expense = Product{name: "Kayak"}
+	var e2 Expense = Product{name: "Kayak"}
+	var e3 Expense = &Service{description: "Boat Cover"}
+	var e4 Expense = &Service{description: "Boat Cover"}
+	fmt.Println("e1 == e2", e1 == e2)
+	fmt.Println("e3 == e4", e3 == e4)
+
+	expenses3 := []Expense{
+		Product{"Kayak", "Watersports", 275},
+		Product{"Ball", "Watersports", 300},
+		&Service{"Boat Cover", 12, 89.50},
+	}
+
+	for _, expense3 := range expenses3 {
+		if s, ok := expense3.(Product); ok {
+			fmt.Println("Product:", s.name, "Category:", s.category)
+		} else {
+			fmt.Println("Expense:", expense3.getName(), "Cost:", expense3.getCost(true))
+		}
+	}
 }
