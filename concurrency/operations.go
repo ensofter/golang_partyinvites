@@ -7,10 +7,12 @@ import (
 
 func CalcStoreTotal(data ProductData) {
 	var storeTotal float64
-	var channel = make(chan float64)
+	var channel = make(chan float64, 2)
 	for category, group := range data {
 		go group.TotalPrice(category, channel)
 	}
+	time.Sleep(time.Second * 5)
+	fmt.Println("-- Starting to receive from channel")
 	for i := 0; i < len(data); i++ {
 		fmt.Println("-- channel read pending")
 		value := <-channel
