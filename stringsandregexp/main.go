@@ -33,4 +33,21 @@ func main() {
 		fmt.Println(string(char), "Upper case:",
 			unicode.IsUpper(char))
 	}
+
+	description1 := "A boat for one person"
+	fmt.Println("Count:", strings.Count(description1, "o"))
+	fmt.Println("Index:", strings.Index(description1, "o"))
+	fmt.Println("LastIndex:", strings.LastIndex(description1,
+		"o"))
+	fmt.Println("IndexAny:", strings.IndexAny(description1,
+		"abcd"))
+	fmt.Println("LastIndex:", strings.LastIndex(description1,
+		"o"))
+	fmt.Println("LastIndexAny:",
+		strings.LastIndexAny(description1, "abcd"))
+
+	isLetterB := func(r rune) bool {
+		return r == 'B' || r == 'b'
+	}
+	fmt.Println("IndexFunc:", strings.IndexFunc(description1, isLetterB))
 }
