@@ -22,4 +22,8 @@ func main() {
 		"Ka"))
 	fmt.Println("HasSuffix:", strings.HasSuffix(product,
 		"yak"))
+
+	description := "привет как твои дела"
+	fmt.Println("Original:", description)
+	fmt.Println("Title:", strings.ToUpper(description))
 }
