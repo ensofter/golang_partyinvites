@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"strings"
+	"unicode"
 )
 
 func main() {
@@ -26,4 +27,10 @@ func main() {
 	description := "привет как твои дела"
 	fmt.Println("Original:", description)
 	fmt.Println("Title:", strings.ToUpper(description))
+
+	product1 := "Kayak"
+	for _, char := range product1 {
+		fmt.Println(string(char), "Upper case:",
+			unicode.IsUpper(char))
+	}
 }
